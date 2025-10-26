@@ -5,7 +5,7 @@ from core.services import gemini
 
 
 def index_ask(request):
-    # Inicializar historial de conversación
+    # Historial que aparecera renderizado
     if 'historial' not in request.session:
         request.session['historial'] = []
 
@@ -32,13 +32,13 @@ def index_ask(request):
         # Guarda la respuesta (sin procesar aún)
         historial.append({
             'rol': 'lexrevox',
-            'mensaje': respuesta  # ← Se guarda en texto Markdown
+            'mensaje': respuesta # Se guarda en texto Markdown
         })
 
-        # Guarda los cambios en sesión
+        # Guarda los cambios
         request.session.modified = True
 
-    # --- Convertir mensajes Markdown a HTML SOLO al renderizar ---
+    # Convierte mensajes Markdown a HTML SOLO al renderizar
     historial_html = []
     for mensaje in historial:
         if mensaje['rol'] == 'lexrevox':
