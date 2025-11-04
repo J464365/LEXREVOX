@@ -6,14 +6,23 @@
     <title>Habla con LEXREVOX</title>
     <!--Link para archivo css y demas elementos de la carpeta "static"-->
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <link rel="short icon" type="image/x-icon" href="{% static 'images/Icono.png' %}">
+    <link rel="short icon" type="image/x-icon" href="{% static 'images/Iconofondo.png' %}">
 
 </head>
 <body>
 
-    <h1 style = "text-align: center;">LEXREVOX beta</h1>
-    <aside style="float : right;"></aside>
-    <img src="{% static 'images/LOGO_OEA-removebg-preview_9.png' %}" width="150px" alt="imagenes">
+    <header class="header">
+
+        <img id="imagen" src="{% static 'images/LOGO_OEA-removebg-preview_9.png' %}" width="150px" alt="Logo LEXREVOX">
+        <img id="imagenlogo" src="{% static 'images/Iconofondo.png' %}" width="150px">
+
+        <br>
+        <br>
+        <h1 id="beta" style="text-align: center;">LEXREVOX</h1>
+        <aside style="float: right;"></aside>
+
+    </header>
+
 
     <div class="chat-container" id="chat">
         {% if historial %}
@@ -30,7 +39,7 @@
                 </div>
             {% endfor %}
         {% else %}
-            <p style="text-align: center;">¡Comienza a hablar con LEXREVOX enviando tu primera pregunta!</p>
+            <p style="text-align: center;">¡Comienza a interactuar con LEXREVOX enviando tu primera pregunta!</p>
         {% endif %}
     </div>
 
@@ -45,8 +54,18 @@
         <br><br>
 
         <button type="submit">Enviar</button>
-        <button type="submit" name="borrar" value="1">🗑️ Borrar conversación</button>
+        <button type="submit" name="borrar" value="1">Borrar conversación</button>
     </form>
+
+
+    <br>
+    <br>
+
+    <footer class="footer">
+
+        <h4 style="text-align: center;">LEXREVOX - derecjos reservados. Uso exclusivo para fines institucionales (copyrigth © 2025)</h4>
+
+    </footer>
 
     <script>
         // Scroll automático al final de la conversación
